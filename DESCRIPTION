@@ -1,0 +1,23 @@
+Package: practice
+Type: Package
+Title: Research compendium practice
+Version: 0.0.0.9000
+Authors@R: c(
+    person(given   = "Estelle",
+           family  = "Barbot",
+           role    = c("aut", "cre", "cph"),
+           email   = "estelle.barbot@protonmail.com",
+           comment = c(ORCID = "0000-0000-0000-0000")))
+Description: This project aims to download PanTHERIA and WWF WildFinder 
+    databases. It is structured as a research compendium to be reproducible.
+    This is the result of the Practice 1 of the training course Reproducible 
+    Research in Computational Ecology available at:
+    <https://rdatatoolbox.github.io/chapters/ex-compendium.html>.
+License: GPL-2
+Encoding: UTF-8
+RoxygenNote: 7.3.2
+Imports: 
+    here,
+    utils
+Depends: 
+    magrittr
