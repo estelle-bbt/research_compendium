@@ -51,7 +51,7 @@ Coming soon...
 Open the `practice.Rproj` file in RStudio and run `source("make.R")` to launch 
 analyses. 
 
-- All packages will be automatically installed and loaded
+- *All packages* will be automatically installed and loaded
 - Datasets will be saved in the `data/` directory
 
 
