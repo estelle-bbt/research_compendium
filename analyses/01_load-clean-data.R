@@ -21,5 +21,9 @@ str(wildfinder_mammals_list_data)
 
 # remove all characters before underscore
 pantheria_data <- pantheria_data %>%
-  dplyr::rename_with(~ sub("^[^_]*_", "", .))
+  dplyr::rename_with(~ sub("^[^_]*_", "", .)) %>%
+  # remove negative gestation length
+  dplyr::filter(GestationLen_d>0) %>%
+  # only small animals
+  dplyr::filter(AdultBodyMass_g<10000)
 
