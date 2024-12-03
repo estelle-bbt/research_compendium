@@ -16,3 +16,6 @@ source(here::here("analyses", "01_load-clean-data.R"))
 
 ## Get a simple plot ----
 source(here::here("analyses", "02_simple_plot.R"))
+
+## Get a complex plot ----
+source(here::here("analyses", "03_complex_plot.R"))
