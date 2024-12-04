@@ -9,6 +9,11 @@ devtools::install_deps(upgrade = "never")
 ## Visualize the pipeline ----
 # targets::tar_visnetwork()
 
+targets::tar_config_set(
+  store = "outputs/pipeline",
+  script = "analyses/pipeline.R"
+)
+
 # Run project ----
 targets::tar_make()
 
