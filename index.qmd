@@ -14,30 +14,35 @@ Finalement, ajoutez une ligne de code dans votre make.R qui permettra de transpi
 
 Pensez aux commits ! Pensez aussi à mettre à jour la liste des dépendances dans le fichiers DESCRIPTION avec la fonction add_dependencies() de rcompendium.
 
+Juste pour vérifier que ça fonctionne bien avec targets.
+
 ## Exercice
 
 First loading everything (code not shown).
 
 ```{r,echo=FALSE,warnings=FALSE,message=FALSE}
-## Install packages ----
-devtools::install_deps(upgrade = "never")
-
-## Load packages & functions ----
-devtools::load_all()
-
-# source(here::here("analyses", "00_download-data.R"))
-source(here::here("analyses", "01_load-format-data.R"))
-source(here::here("analyses", "02_describe-and-plot.R"))
+# ## Install packages ----
+# devtools::install_deps(upgrade = "never")
+# 
+# ## Load packages & functions ----
+# devtools::load_all()
+targets::tar_config_set(
+  store = "outputs/pipeline",
+  script = "analyses/pipeline.R"
+)
 ```
 
 Then getting the table :
 
 ```{r,warnings=FALSE}
-knitr::kable(ecoregion_per_ursidae_data)
+knitr::kable(targets::tar_read(count_ecoregions))
 ```
 
 Then getting the plot :
 
 ```{r,warnings=FALSE}
-ecoregion_per_ursidae_plot
+targets::tar_load(plot_ecoregions)
+
+plot_ecoregions
+
 ```

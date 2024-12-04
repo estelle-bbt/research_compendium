@@ -7,8 +7,8 @@
 #' 
 #' @export
 
-ecoregion_per_ursidae <- function(){
-  ursidae_ecoregions_data %>%
-  dplyr::group_by(sci_name) %>%
+ecoregion_per_ursidae <- function(x){
+  x |>
+  dplyr::group_by(sci_name) |>
   dplyr::summarise(n_ecoregion=dplyr::n_distinct(ecoregion))
 }

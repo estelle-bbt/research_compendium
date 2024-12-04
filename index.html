@@ -101,13 +101,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Créez un fichier index.qmd à la racine du projet qui appellera chaque fonction créée précédemment. Devront figurer dans le document final, a minima, le résultat demandé sous forme de tableaux (fonction knitr::kable()) et de figures, ainsi que la source des données. Structurez votre document avec des titres et des paragraphes.</p>
 <p>Finalement, ajoutez une ligne de code dans votre make.R qui permettra de transpiler votre index.qmd en version index.html (fonction quarto::quarto_render()).</p>
 <p>Pensez aux commits ! Pensez aussi à mettre à jour la liste des dépendances dans le fichiers DESCRIPTION avec la fonction add_dependencies() de rcompendium.</p>
+<p>Juste pour vérifier que ça fonctionne bien avec targets.</p>
 </section>
 <section id="exercice" class="level2">
 <h2 class="anchored" data-anchor-id="exercice">Exercice</h2>
 <p>First loading everything (code not shown).</p>
 <p>Then getting the table :</p>
 <div class="cell" data-warnings="false">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(ecoregion_per_ursidae_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(targets<span class="sc">::</span><span class="fu">tar_read</span>(count_ecoregions))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <thead>
@@ -155,7 +156,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Then getting the plot :</p>
 <div class="cell" data-warnings="false">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ecoregion_per_ursidae_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>targets<span class="sc">::</span><span class="fu">tar_load</span>(plot_ecoregions)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>plot_ecoregions</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">

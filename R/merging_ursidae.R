@@ -7,8 +7,8 @@
 #' 
 #' @export
 
-merging_ursidae <- function(){
-  ursidae_data %>%
-    dplyr::left_join(wildfinder_ecoregions_species_data,by=dplyr::join_by(species_id)) %>%
-    dplyr::left_join(wildfinder_ecoregions_list_data,by=dplyr::join_by(ecoregion_id))
+merging_ursidae <- function(x,y,z){
+  x |>
+    dplyr::left_join(y,by=dplyr::join_by(species_id)) |>
+    dplyr::left_join(z,by=dplyr::join_by(ecoregion_id))
 }

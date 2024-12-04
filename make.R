@@ -4,21 +4,16 @@
 devtools::install_deps(upgrade = "never")
 
 ## Load packages & functions ----
-devtools::load_all()
+# devtools::load_all()
+
+## Visualize the pipeline ----
+# targets::tar_visnetwork()
 
 # Run project ----
+targets::tar_make()
 
-## Download raw data ----
-# source(here::here("analyses", "00_download-data.R"))
-
-## Load and clean data ----
-source(here::here("analyses", "01_load-format-data.R"))
-
-## Get the results ----
-source(here::here("analyses", "02_describe-and-plot.R"))
-
-## Transpiler index.qmd
-# quarto::quarto_render("index.qmd")
+## Visualize the pipeline ----
+targets::tar_visnetwork()
 
 # ## Get a simple plot ----
 # source(here::here("analyses", "02_simple_plot.R"))

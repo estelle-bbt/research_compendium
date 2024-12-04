@@ -7,7 +7,7 @@
 #' 
 #' @export
 
-filter_ursidae <- function(){
-  wildfinder_mammals_list_data %>%
+filter_ursidae <- function(x){
+  x |>
     dplyr::filter(family=="Ursidae")
 }
