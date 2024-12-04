@@ -20,4 +20,5 @@ Imports:
     here,
     utils
 Depends: 
+    ggplot2,
     magrittr
